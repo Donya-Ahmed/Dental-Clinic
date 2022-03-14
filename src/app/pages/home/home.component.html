@@ -1,0 +1,54 @@
+<div class="card  text-white">
+  <img src="assets/bg2.jpg" class="card-img" alt="...">
+  <div class="card-img-overlay bg-dark bg-opacity-50">
+    <div class="row justify-content-evenly  mtop ">
+      <div class="col-sm-9 col-lg-4 shadow-lg text-center p-5" routerLink="/loginDoctor">
+
+        <h4 class="card-text mb-5 txt">Doctor</h4>
+        <i class="fa-solid fa-user-doctor "></i>
+      </div>
+      <div class="col-sm-9 col-lg-4  shadow-lg text-center p-5" routerLink="/loginRecptionist">
+        <h4 class="card-text mb-5 txt">Receptionist</h4>
+        <i class="fa-solid fa-circle-user "></i>
+      </div>
+
+    </div>
+
+
+  </div>
+</div>
+<section class="container mt-5">
+  <h3 class="txt text-center mb-5">Clinic Schedule
+  </h3>
+  <input type="text" class="form-control" placeholder="Enter doctor name" [(ngModel)]="keyWord" (input)="search()">
+  <table class="table table-hover table-secondary">
+
+    <thead>
+      <tr>
+        <th>Name</th>
+     <th>Saturday</th>
+     <th>Sunday</th>
+     <th>Monday</th>
+     <th>Tuesday</th>
+     <th>Wednesday</th>
+     <th>Thursday</th>
+     <th>Friday</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- <td *ngFor="let x of doctors">{{x.name}}</td> -->
+      <tr *ngFor="let x of doctors ">
+
+            <td>{{x.name}}</td>
+            <td *ngFor="let y of x.days ; let i = index">{{y.date}}</td>
+
+
+      </tr>
+
+    </tbody>
+
+  </table>
+
+
+</section>
+

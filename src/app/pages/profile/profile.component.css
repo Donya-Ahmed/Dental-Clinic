@@ -1,0 +1,26 @@
+.pos{
+  position:relative;
+  z-index: 1000;
+  top: 10%;
+  left: 25%;
+  width: 50%;
+  height: 50%;
+}
+.x{
+background-image: url("../../../assets/bg3.jpg");
+background-repeat: no-repeat;
+background-size: 100% 100%;
+position: absolute;
+width: 100%;
+height: 100%;
+
+}
+.overlay{
+  background-color: #3d3636bf;
+  width: 100%;
+height: 100%;
+}
+.ic{
+  font-size: 20px;
+  margin-right: 5px;
+}

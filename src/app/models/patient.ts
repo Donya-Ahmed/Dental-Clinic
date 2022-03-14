@@ -1,0 +1,29 @@
+export interface patient {
+  id:string
+  name:string
+  age:number
+  address:string
+  phone:string
+  fees:number
+  visits:[
+    {
+      date:string
+      time:string
+      type:string
+    }
+
+  ]
+  doctorAssessement:[
+    {
+      diagnosis:string
+      prescription:string
+      lab:string
+    }
+  ]
+  additionalProcedures:[
+    {
+      procedure:string
+      fees:number
+    }
+  ]
+}

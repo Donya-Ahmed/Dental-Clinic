@@ -1,1 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
+
+.btn-primary:hover{
+  color:#0D6EFD !important;
+  background-color: white !important;
+
+}
+.btn-secondary:hover{
+  color:#5C636A !important;
+  background-color: white !important;
+}
+.txt{
+  font-family:Cursive ;
+
+}
+.btn-success:hover{
+  color:#157347 !important;
+  background-color: white !important;
+}
+.btn-info:hover{
+  color:#15CCF0 !important;
+  background-color: white !important;
+}
+/* .modal-backdrop.show {
+  opacity: 0 !important;
+} */

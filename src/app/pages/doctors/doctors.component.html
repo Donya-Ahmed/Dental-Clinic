@@ -1,0 +1,145 @@
+<section class="container mt-5">
+  <h4 class="txt">patient's Diagnosis</h4>
+</section>
+<section class="container mt-5 shadow-lg bg-secondary.bg-gradient" *ngIf="hiddenDiagnosis">
+
+
+  <form #FormDiagnosis="ngForm"   (ngSubmit)="handlerDiagnosis(FormDiagnosis)" class="row p-5">
+    <div class="mb-3 col-sm-12  ">
+      <label for="exampleInputName" class="form-label">Diagnosis</label>
+      <textarea class="form-control" placeholder="Leave a comment here" id="exampleInputName" ngModel #diagnosis="ngModel" required  name="diagnosis"></textarea>
+      <div *ngIf="diagnosis.invalid&&(diagnosis.dirty||diagnosis.touched||FormDiagnosis.submitted)">
+        <p *ngIf="diagnosis.errors?.['required']">Diagnosisis required</p>
+      </div>
+
+    </div>
+
+
+
+    <div class="mb-3 col-sm-12  ">
+      <label for="exampleInputName" class="form-label">Prescription</label>
+      <textarea class="form-control" placeholder="Leave a prescription here" id="exampleInputName" ngModel #prescription="ngModel" required  name="prescription"></textarea>
+      <div *ngIf="prescription.invalid&&(prescription.dirty||prescription.touched||FormDiagnosis.submitted)">
+        <p *ngIf="prescription.errors?.['required']">Prescription required</p>
+      </div>
+
+    </div>
+
+    <div class="mb-3 col-sm-12  ">
+      <label for="exampleInputName" class="form-label">Lab</label>
+      <textarea class="form-control" placeholder="Leave a Lab here" id="exampleInputName" ngModel #lab="ngModel" required  name="lab"></textarea>
+      <div *ngIf="lab.invalid&&(lab.dirty||lab.touched||FormDiagnosis.submitted)">
+        <p *ngIf="lab.errors?.['required']">Lab required</p>
+      </div>
+
+    </div>
+
+
+
+
+
+
+    <button type="submit" class="btn btn-primary col-sm-2  mt-5 ">Add Diagnosis</button>
+  </form>
+
+
+
+
+</section>
+
+<section class="container mt-5 shadow-lg bg-secondary.bg-gradient" *ngIf="hiddenProcedure">
+
+
+  <form #FormProcedure="ngForm"   (ngSubmit)="handlerProcedure(FormProcedure)" class="row p-5">
+    <div class="mb-3 col-sm-12  ">
+      <label for="exampleInputName" class="form-label">Procedure</label>
+      <select class="form-control" id="exampleInputName" ngModel #procedure="ngModel" required  name="procedure">
+        <option>Teeth Cleanings/1000EGP </option>
+        <option>Teeth Whitening/2000EGP </option>
+        <option>Extractions/2500EGP </option>
+        <option>Veneers/1500EGP </option>
+        <option>Fillings/3000EGP </option>
+        <option>Crowns/1800EGP </option>
+        <option>Root Canal/2000EGP </option>
+        <option>Braces/Invisalign/4000EGP</option>
+        <option>Bonding/2000EGP</option>
+        <option>Dentures/5000EGP </option>
+
+      </select>
+      <div *ngIf="procedure.invalid&&(procedure.dirty||procedure.touched||FormProcedure.submitted)">
+        <p *ngIf="procedure.errors?.['required']">Procedure required</p>
+      </div>
+
+    </div>
+
+
+
+
+
+    <div class="mb-3 col-sm-12  ">
+      <label for="exampleInputName" class="form-label">Fees</label>
+      <input type="text" class="form-control" placeholder="fees  here" id="exampleInputName" ngModel #fees="ngModel" required  name="fees">
+      <div *ngIf="fees.invalid&&(fees.dirty||fees.touched||FormProcedure.submitted)">
+        <p *ngIf="fees.errors?.['required']">Fees required</p>
+      </div>
+
+    </div>
+
+
+
+
+
+
+    <button type="submit" class="btn btn-primary col-sm-2  mt-5 ">Add Procedure</button>
+  </form>
+
+
+
+
+</section>
+
+<section class="container mt-5">
+  <table class="table table-dark table-striped">
+
+    <thead>
+      <tr>
+        <th>Name</th>
+     <th>Age</th>
+     <th>Controls</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr >
+
+            <td>{{_auth.doctorShowPatient.name}}</td>
+            <td>{{_auth.doctorShowPatient.age}}</td>
+
+            <td>
+              <button class="btn btn-secondary addRection me-3" (click)="addDiagnosis(_auth.doctorShowPatient.id)">Add Diagnosis
+              </button>
+              <button class="btn btn-info addRection px-4 "(click)="addProcedure(_auth.doctorShowPatient.id)"   >Add Procedure</button>
+
+            </td>
+
+
+
+      </tr>
+
+
+    </tbody>
+
+  </table>
+
+  <div class="row justify-content-between mt-3 ">
+      <div class="col-2">
+        <button class="btn btn-success " routerLink="/" (click)="logout()">Home</button>
+
+      </div>
+      <div class="col-2">
+        <button class="btn btn-primary " routerLink="/loginDoctor" (click)="logout()">Doctor</button>
+
+      </div>
+
+
+  </div>
+</section>

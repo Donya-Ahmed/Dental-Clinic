@@ -1,0 +1,19 @@
+.mtop{
+    margin-top:20%;
+}
+.mtop i{
+  font-size:80px;
+}
+.mtop div{
+  cursor: pointer
+}
+.mtop div:hover{
+  color:rgb(234, 146, 14);
+
+}
+
+.txt:hover{
+  color:rgb(234, 146, 14);
+
+
+}

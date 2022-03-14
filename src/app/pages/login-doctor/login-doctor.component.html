@@ -1,0 +1,112 @@
+  <!-- <div class="card  text-white">
+  <img src="assets/bg.jpg" class="card-img w-50" alt="...">
+  <div class="card-img-overlay bg-dark bg-opacity-75">
+    <div class="row justify-content-evenly mt-5 ">
+      <div class="col-sm-4  shadow-lg text-center p-5" >
+
+        <h4 class="card-text mb-5">login</h4>
+        <form #FormLogin="ngForm"   (ngSubmit)="handlerLogin(FormLogin)">
+          <div class="mb-3">
+            <label for="exampleInputName" class="form-label">Doctor Name</label>
+            <input type="text" class="form-control" id="exampleInputName" ngModel #name="ngModel" required minlength="3" name="name">
+            <div *ngIf="name.invalid&&(name.dirty||name.touched||FormLogin.submitted)">
+              <p *ngIf="name.errors?.['required']">User name is required</p>
+              <p *ngIf="name.errors?.['minlength']">name must be at least 3character</p>
+
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" ngModel #password="ngModel" required name="password">
+            <div *ngIf="password.invalid&&(password.dirty||password.touched||FormLogin.submitted)">
+              <p *ngIf="password.errors?.['required']">password is required</p>
+
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Login</button>
+        </form>
+      </div>
+
+
+    </div>
+
+
+  </div>
+</div>  -->
+
+ <div class="card  text-white">
+  <img src="assets/bg.jpg" class="card-img w-50" alt="...">
+  <div class="card-img-overlay bg-dark bg-opacity-75">
+    <div class="row justify-content-evenly mt-5 ">
+      <div class="col-sm-4  shadow-lg text-center p-5" >
+
+        <h4 class="card-text mb-5">login</h4>
+        <form #FormLogin="ngForm"   (ngSubmit)="handlerLogin(FormLogin)">
+          <div class="mb-3">
+            <label for="exampleInputName" class="form-label">Doctor Name</label>
+            <input type="text" class="form-control" id="exampleInputName" ngModel #name="ngModel" required minlength="3" name="name">
+            <div *ngIf="name.invalid&&(name.dirty||name.touched||FormLogin.submitted)">
+              <p *ngIf="name.errors?.['required']">User name is required</p>
+              <p *ngIf="name.errors?.['minlength']">name must be at least 3character</p>
+
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" ngModel #password="ngModel" required name="password">
+            <div *ngIf="password.invalid&&(password.dirty||password.touched||FormLogin.submitted)">
+              <p *ngIf="password.errors?.['required']">password is required</p>
+
+            </div>
+          </div>
+
+          <!-- <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Login</button> -->
+                   <button type="submit" class="btn btn-primary" >Login</button>
+
+        </form>
+      </div>
+
+
+    </div>
+
+
+  </div>
+</div>
+
+
+
+<div
+class="modal"
+tabindex="-1"
+role="dialog"
+[ngStyle]="{'display':displayStyle}">
+<div class="modal-dialog" role="document">
+	<div class="modal-content">
+	<div class="modal-header">
+		<h4 class="modal-title">Please Enter patient id</h4>
+	</div>
+	<div class="modal-body">
+    <form #FormPatient="ngForm" (ngSubmit)="search(FormPatient)">
+      <div class="mb-3">
+        <label for="recipient-name" class="col-form-label">Patiant id</label>
+        <input type="text" class="form-control" id="recipient-name" ngModel #patient="ngModel" name="patient" >
+        <div *ngIf="error">
+          <div class="alert alert-danger" >Id is wrong</div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary" >Submit</button>
+      </div>
+
+    </form>
+
+
+	</div>
+
+	</div>
+</div>
+</div>
+
+

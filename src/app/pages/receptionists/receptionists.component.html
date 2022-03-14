@@ -1,0 +1,182 @@
+<section    class="container mt-5 shadow-lg bg-secondary.bg-gradient
+"  >
+
+      <form #Formpatient="ngForm"   (ngSubmit)="handlerpatient(Formpatient)" class="row p-5 bg-secondary  bg-opacity-25" >
+        <h4 class=" txt text-center text-primary">Add new patient</h4>
+
+        <div class="mb-3 col-sm-12 col-md-6 ">
+          <label for="exampleInputName" class="form-label">patient Name</label>
+          <input type="text" class="form-control" id="exampleInputName" ngModel #name="ngModel" required minlength="3" name="name">
+          <div *ngIf="name.invalid&&(name.dirty||name.touched||Formpatient.submitted)">
+            <p *ngIf="name.errors?.['required']">User name is required</p>
+            <p *ngIf="name.errors?.['minlength']">name must be at least 3character</p>
+
+          </div>
+        </div>
+        <div class="mb-3 col-sm-12 col-md-6 ">
+          <label for="exampleInputPassword1" class="form-label">Age</label>
+          <input type="number" class="form-control" id="exampleInputPassword1" ngModel #age="ngModel" required name="age">
+          <div *ngIf="age.invalid&&(age.dirty||age.touched||Formpatient.submitted)">
+            <p *ngIf="age.errors?.['required']">age is required</p>
+
+          </div>
+        </div>
+        <div class="mb-3 col-sm-12 col-md-6 ">
+          <label for="exampleInputName" class="form-label">Address</label>
+          <input type="text" class="form-control" id="exampleInputName" ngModel #address="ngModel" required  name="address">
+          <div *ngIf="address.invalid&&(address.dirty||address.touched||Formpatient.submitted)">
+            <p *ngIf="address.errors?.['required']">Address is required</p>
+
+          </div>
+        </div>
+        <div class="mb-3 col-sm-12  col-md-6">
+          <label for="exampleInputName" class="form-label">Phone Number</label>
+          <input type="text" class="form-control" id="exampleInputName" ngModel #phone="ngModel" required maxlength="11"  name="phone">
+          <div *ngIf="phone.invalid&&(phone.dirty||phone.touched||Formpatient.submitted)">
+            <p *ngIf="phone.errors?.['required']">phone is required</p>
+            <p *ngIf="phone.errors?.['maxlength']">phone  must be at most 11character</p>
+
+
+          </div>
+        </div>
+
+
+
+
+        <button type="submit" class="btn btn-primary col-sm-2  mt-3">Save</button>
+      </form>
+
+
+
+
+</section>
+<section class="container mt-5 shadow-lg bg-secondary.bg-gradient" *ngIf="hidden">
+
+
+  <form #FormVisit="ngForm"   (ngSubmit)="handlerVisit(FormVisit)" class="row p-5">
+    <div class="mb-3 col-sm-12  ">
+      <label for="exampleInputName" class="form-label">Date of Visit</label>
+      <input type="date" class="form-control" id="exampleInputName" ngModel #date="ngModel" required  name="date">
+      <div *ngIf="date.invalid&&(date.dirty||date.touched||Formpatient.submitted)">
+        <p *ngIf="date.errors?.['required']">Date is required</p>
+
+      </div>
+    </div>
+    <div class="mb-3 col-sm-12  ">
+      <label for="exampleInputName" class="form-label">Time of Visit</label>
+      <input type="time" class="form-control" id="exampleInputName" ngModel #time="ngModel" required  name="time">
+      <div *ngIf="time.invalid&&(time.dirty||time.touched||Formpatient.submitted)">
+        <p *ngIf="time.errors?.['required']">Time is required</p>
+
+      </div>
+    </div>
+    <div class="mb-3 col-sm-12 ">
+      <label for="exampleInputName" class="form-label">Type of Visit</label>
+      <select class="form-control" id="exampleInputName" ngModel #type="ngModel" required  name="type">
+        <option> Examination</option>
+        <option>Consultation
+        </option>
+      </select>
+      <div *ngIf="type.invalid&&(type.dirty||type.touched||Formpatient.submitted)">
+        <p *ngIf="type.errors?.['required']">type is required</p>
+
+      </div>
+    </div>
+
+
+
+
+
+    <button type="submit" class="btn btn-primary col-sm-2  mt-5 ">Add visit</button>
+  </form>
+
+
+
+
+</section>
+
+
+<section class="container mt-5">
+  <input type="text" class="form-control" placeholder="Enter patient name" [(ngModel)]="keyWord" (input)="search()">
+  <table class="table table-dark table-striped">
+
+    <thead>
+      <tr>
+        <th>Name</th>
+     <th>Age</th>
+     <th>Address</th>
+     <th>Phone.No</th>
+     <th>Controls</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- <td *ngFor="let x of doctors">{{x.name}}</td> -->
+      <tr *ngFor="let x of show ">
+
+            <td>{{x.name}}</td>
+            <td>{{x.age}}</td>
+            <td>{{x.address}}</td>
+            <td>{{x.phone}}</td>
+            <td>
+              <button class="btn btn-secondary addRection me-3" (click)="add(x.id)">add visit</button>
+              <button class="btn btn-info addRection px-4" routerLink="/patient/{{x.id}}" >Bill</button>
+
+            </td>
+
+
+
+      </tr>
+
+
+    </tbody>
+
+  </table>
+
+
+</section>
+
+
+<!-- <section class="container mt-5 shadow-lg bg-secondary.bg-gradient" *ngIf="hidden">
+
+
+  <form #FormVisit="ngForm"   (ngSubmit)="handlerVisit(FormVisit)" class="row p-5">
+    <div class="mb-3 col-sm-12  ">
+      <label for="exampleInputName" class="form-label">Date of Visit</label>
+      <input type="date" class="form-control" id="exampleInputName" ngModel #date="ngModel" required  name="date">
+      <div *ngIf="date.invalid&&(date.dirty||date.touched||Formpatient.submitted)">
+        <p *ngIf="date.errors?.['required']">Date is required</p>
+
+      </div>
+    </div>
+    <div class="mb-3 col-sm-12  ">
+      <label for="exampleInputName" class="form-label">Time of Visit</label>
+      <input type="time" class="form-control" id="exampleInputName" ngModel #time="ngModel" required  name="time">
+      <div *ngIf="time.invalid&&(time.dirty||time.touched||Formpatient.submitted)">
+        <p *ngIf="time.errors?.['required']">Time is required</p>
+
+      </div>
+    </div>
+    <div class="mb-3 col-sm-12 ">
+      <label for="exampleInputName" class="form-label">Type of Visit</label>
+      <select class="form-control" id="exampleInputName" ngModel #type="ngModel" required  name="type">
+        <option> Examination</option>
+        <option>Consultation
+        </option>
+      </select>
+      <div *ngIf="type.invalid&&(type.dirty||type.touched||Formpatient.submitted)">
+        <p *ngIf="type.errors?.['required']">type is required</p>
+
+      </div>
+    </div>
+
+
+
+
+
+    <button type="submit" class="btn btn-primary col-sm-2  mt-5 ">Add visit</button>
+  </form>
+
+
+
+
+</section> -->
